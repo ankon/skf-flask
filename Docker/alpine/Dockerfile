@@ -17,7 +17,8 @@ openssl \
 bash \
 perl \
 git 
-RUN git clone https://github.com/blabla1337/skf-flask.git
+#RUN git clone https://github.com/blabla1337/skf-flask.git
+COPY skf-flask /skf-flask
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install
