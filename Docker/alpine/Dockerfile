@@ -3,7 +3,7 @@ FROM alpine
 # Thanks to Mariano Abdala <marianoabdala@gmail.com>
 MAINTAINER Glenn ten Cate <glenn.ten.cate@owasp.org>
 
-RUN apk update --no-cache && apk add python3 \
+RUN apk add --no-cache python3 \
 gcc \
 nginx \
 sqlite \
