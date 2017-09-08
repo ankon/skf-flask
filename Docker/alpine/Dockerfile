@@ -18,7 +18,7 @@ bash \
 perl \
 git 
 #RUN git clone https://github.com/blabla1337/skf-flask.git
-COPY skf-flask /skf-flask
+COPY . /skf-flask
 # Start Angular app
 WORKDIR /skf-flask/Angular
 RUN npm install
@@ -29,12 +29,6 @@ WORKDIR /skf-flask
 RUN pip3 install -r requirements.txt
 VOLUME [ "/skf-flask" ]
 #USER nobody
-COPY entrypoint.sh /
-COPY wrapper.sh /
-COPY skf-api.sh /
-COPY skf-angular.sh /
-RUN ["chmod", "+x", "/entrypoint.sh"]
-RUN ["chmod", "+x", "/wrapper.sh"]
-RUN ["chmod", "+x", "/skf-api.sh"]
-RUN ["chmod", "+x", "/skf-angular.sh"]
+COPY Docker/alpine/*.sh /
+RUN chmod +x /entrypoint.sh /wrapper.sh /skf-api.sh /skf-angular.sh
 ENTRYPOINT ["/entrypoint.sh"]
